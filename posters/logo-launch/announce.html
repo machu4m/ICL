@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=1080">
+<title>ICL S2 Logo Launched</title>
+<!--
+  Post-event announcement: the launch photo as a window, the lockup
+  breaking out of its bottom edge. Same signal ground as index.html.
+  Canvas 1080 x 1350 (4:5). Export: node render.js announce
+-->
+<style>
+@font-face{font-family:'Archivo';src:url(assets/fonts/Archivo.woff2) format('woff2');font-style:normal;font-weight:100 900;font-stretch:62% 125%;font-display:block}
+@font-face{font-family:'Archivo';src:url(assets/fonts/Archivo-Italic.woff2) format('woff2');font-style:italic;font-weight:100 900;font-stretch:62% 125%;font-display:block}
+@font-face{font-family:'Instrument Serif';src:url(assets/fonts/InstrumentSerif.woff2) format('woff2');font-style:normal;font-weight:400;font-display:block}
+@font-face{font-family:'Instrument Serif';src:url(assets/fonts/InstrumentSerif-Italic.woff2) format('woff2');font-style:italic;font-weight:400;font-display:block}
+@font-face{font-family:'JetBrains Mono';src:url(assets/fonts/JetBrainsMono.woff2) format('woff2');font-style:normal;font-weight:100 800;font-display:block}
+
+:root{
+  --red:#E92D3C; --blue:#1234F9; --navy:#061433; --white:#FFFFFF;
+  --f-display:'Archivo','Arial Narrow',Arial,sans-serif;
+  --f-serif:'Instrument Serif',Georgia,serif;
+  --f-mono:'JetBrains Mono',ui-monospace,Menlo,monospace;
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:#000}
+.poster{position:relative;width:1080px;height:1350px;overflow:hidden;background:var(--navy);color:var(--white)}
+.poster > *{position:absolute;margin:0}
+
+.glow{inset:0;background:
+  radial-gradient(ellipse 700px 420px at 540px 520px,rgba(18,52,249,.5),rgba(18,52,249,0) 70%),
+  radial-gradient(ellipse 900px 360px at 540px 1420px,rgba(233,45,60,.38),rgba(233,45,60,0) 70%)}
+.scan{inset:0;background:repeating-linear-gradient(0deg,rgba(6,20,51,.38) 0 2px,rgba(6,20,51,0) 0 6px)}
+
+.meta{top:58px;font-family:var(--f-mono);font-weight:500;font-size:21px;letter-spacing:.14em;text-transform:uppercase;line-height:1.5}
+.meta.l{left:64px}
+.meta.r{right:64px;text-align:right}
+.meta b{font-weight:700}
+
+.partner{left:0;right:0;top:150px;text-align:center;font-family:var(--f-display);font-style:italic;font-stretch:125%;font-weight:800;font-size:46px;letter-spacing:.02em;text-transform:uppercase;line-height:1}
+.partner span{display:inline-block;width:.5em;height:.12em;margin:0 .18em;vertical-align:.3em;background:var(--white);transform:skewX(-14deg)}
+
+/* the window: blue offset plate behind, photo on top, floor fades into navy */
+.plate{left:80px;top:236px;width:952px;height:596px;background:var(--blue);border-radius:8px}
+.photo{left:64px;top:220px;width:952px;height:596px;border-radius:8px;overflow:hidden}
+/* crop to the group: source x 70-1220, y 180-900 */
+.photo img{position:absolute;width:1060px;height:795px;left:-58px;top:-149px;display:block}
+.photo::after{content:"";position:absolute;inset:0;background:linear-gradient(rgba(6,20,51,0) 78%,rgba(6,20,51,.9) 100%)}
+
+/* lockup breaks out of the window's bottom edge */
+.logo{left:52px;top:748px;width:390px;height:328px}
+.logo img{position:absolute;inset:0;width:100%;height:100%}
+.logo .r{filter:url(#to-red);transform:translateX(-5px)}
+.logo .b{filter:url(#to-blue);transform:translateX(5px)}
+.logo .b,.logo .r{opacity:.9}
+
+.tag{left:486px;top:846px;font-family:var(--f-display);font-style:italic;font-stretch:125%;font-weight:800;font-size:38px;letter-spacing:.06em;text-transform:uppercase;color:var(--red)}
+.head{left:482px;top:892px;font-family:var(--f-display);font-stretch:62%;font-weight:900;font-size:122px;line-height:.84;text-transform:uppercase;letter-spacing:-.005em}
+
+.by-label{left:64px;right:64px;top:1112px;display:flex;align-items:center;gap:20px;font-family:var(--f-mono);font-weight:500;font-size:19px;letter-spacing:.14em;text-transform:uppercase}
+.by-label::before,.by-label::after{content:"";flex:1;height:2px;background:currentColor;opacity:.35}
+.by{left:64px;right:64px;top:1146px;display:grid;grid-template-columns:1fr 1fr;gap:40px;text-align:center}
+.by h3{margin:0;font-family:var(--f-serif);font-weight:400;font-size:56px;line-height:1;letter-spacing:-.01em}
+.by h3 em{font-style:italic}
+.by p{margin:8px 0 0;font-family:var(--f-mono);font-weight:500;font-size:17px;letter-spacing:.12em;text-transform:uppercase;line-height:1.45;opacity:.85}
+
+.foot{left:64px;right:64px;bottom:44px;display:flex;justify-content:space-between;border-top:2px solid currentColor;padding-top:14px;font-family:var(--f-mono);font-weight:500;font-size:19px;letter-spacing:.14em;text-transform:uppercase;white-space:nowrap}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <filter id="to-red" color-interpolation-filters="sRGB"><feColorMatrix values="0 0 0 0 0.914  0 0 0 0 0.176  0 0 0 0 0.235  0 0 0 1 0"/></filter>
+  <filter id="to-blue" color-interpolation-filters="sRGB"><feColorMatrix values="0 0 0 0 0.071  0 0 0 0 0.204  0 0 0 0 0.976  0 0 0 1 0"/></filter>
+</svg>
+
+<main class="poster" role="img" aria-label="Announcement: the EASYWAY-VIP Imama Cricket League Season 2 logo has been launched, with a photo of the launch team holding the new posters">
+  <div class="glow"></div>
+  <div class="scan"></div>
+
+  <p class="meta l">UAE Imama<br><b>Presents</b></p>
+  <p class="meta r">Season 02<br>UAE · 2026</p>
+
+  <p class="partner">Easyway<span aria-hidden="true"></span>VIP</p>
+
+  <div class="plate"></div>
+  <div class="photo"><img src="assets/launch-group-photo.jpg" alt="The launch team holding the new Season 2 posters"></div>
+
+  <div class="logo">
+    <img class="r" src="assets/icl-s2-logo-white.svg" alt="">
+    <img class="b" src="assets/icl-s2-logo-white.svg" alt="">
+    <img class="w" src="assets/icl-s2-logo-white.svg" alt="UAE Imama, Imama Cricket League, Season 2">
+  </div>
+
+  <p class="tag">Official</p>
+  <h1 class="head">Logo<br>launched</h1>
+
+  <p class="by-label">Unveiled by</p>
+  <div class="by">
+    <div><h3><em>Gafoor</em> Patla</h3><p>CEO · Easyway &amp; VIP</p></div>
+    <div><h3><em>Jabir</em></h3><p>Operations Manager · Easyway</p></div>
+  </div>
+
+  <div class="foot"><span>ICL</span><span>+</span><span>Season 02</span><span>+</span><span>Logo launch</span></div>
+</main>
+</body>
+</html>
